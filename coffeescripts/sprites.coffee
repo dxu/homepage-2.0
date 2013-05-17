@@ -13,11 +13,9 @@ do ->
 
   Sprite.prototype =
     update: (dt) ->
-        @._index += @.speed*dt
+      @._index += @.speed*dt
 
     render: (ctx) ->
-      frame
-
       if @.speed > 0
         max = @.frames.length
         idx = Math.floor(@._index)
@@ -33,6 +31,7 @@ do ->
       if @.dir == 'vertical'
         y += frame * @.size[1]
       else x += frame * @.size[0]
+
 
       ctx.drawImage(resources.get(@.url), x, y, @.size[0], @.size[1],
                     0, 0, @.size[0], @.size[1])

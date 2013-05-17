@@ -26,7 +26,6 @@
         return this._index += this.speed * dt;
       },
       render: function(ctx) {
-        frame;
         var frame, idx, max, x, y;
 
         if (this.speed > 0) {
