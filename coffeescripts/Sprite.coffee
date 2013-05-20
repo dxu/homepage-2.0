@@ -1,15 +1,10 @@
 define ['./resources'], (resources) ->
-  Sprite = (url, pos, size, speed, frames, dir, once) ->
-    @pos = pos
-    @size = size
-    @speed = typeof speed == 'number' ? speed : 0
-    @frames = frames
-    @_index = 0
-    @url = url
-    @dir = dir || 'horizontal'
-    @once = once
+  class Sprite
+    constructor: (@url, @pos, @size, speed, @frames, dir, @once) ->
+      @speed = typeof speed == 'number' ? speed : 0
+      @dir = dir || 'horizontal'
+      @_index = 0
 
-  Sprite.prototype =
     update: (dt) ->
       @._index += @.speed*dt
 

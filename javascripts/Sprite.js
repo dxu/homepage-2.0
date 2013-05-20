@@ -3,25 +3,27 @@
   define(['./resources'], function(resources) {
     var Sprite;
 
-    Sprite = function(url, pos, size, speed, frames, dir, once) {
-      var _ref;
+    Sprite = (function() {
+      function Sprite(url, pos, size, speed, frames, dir, once) {
+        var _ref;
 
-      this.pos = pos;
-      this.size = size;
-      this.speed = (_ref = typeof speed === 'number') != null ? _ref : {
-        speed: 0
-      };
-      this.frames = frames;
-      this._index = 0;
-      this.url = url;
-      this.dir = dir || 'horizontal';
-      return this.once = once;
-    };
-    Sprite.prototype = {
-      update: function(dt) {
+        this.url = url;
+        this.pos = pos;
+        this.size = size;
+        this.frames = frames;
+        this.once = once;
+        this.speed = (_ref = typeof speed === 'number') != null ? _ref : {
+          speed: 0
+        };
+        this.dir = dir || 'horizontal';
+        this._index = 0;
+      }
+
+      Sprite.prototype.update = function(dt) {
         return this._index += this.speed * dt;
-      },
-      render: function(ctx) {
+      };
+
+      Sprite.prototype.render = function(ctx) {
         var frame, idx, max, x, y;
 
         if (this.speed > 0) {
@@ -43,8 +45,11 @@
           x += frame * this.size[0];
         }
         return ctx.drawImage(resources.get(this.url), x, y, this.size[0], this.size[1], 0, 0, this.size[0], this.size[1]);
-      }
-    };
+      };
+
+      return Sprite;
+
+    })();
     return Sprite;
   });
 
