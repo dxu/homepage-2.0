@@ -1,6 +1,4 @@
-root = exports ? @
-
-do ->
+define ['./resources'], (resources) ->
   Sprite = (url, pos, size, speed, frames, dir, once) ->
     @pos = pos
     @size = size
@@ -35,6 +33,5 @@ do ->
 
       ctx.drawImage(resources.get(@.url), x, y, @.size[0], @.size[1],
                     0, 0, @.size[0], @.size[1])
-
-  root.Sprite = Sprite
+  return Sprite
 

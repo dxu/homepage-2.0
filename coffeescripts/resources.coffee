@@ -1,6 +1,4 @@
-root = exports ? this
-
-do ->
+define ->
   resourceCache = {}
   loading = []
   readyCallbacks = []
@@ -37,8 +35,7 @@ do ->
   onReady = (func) ->
     readyCallbacks.push func
 
-  root.resources =
-    load: load
-    get: get
-    onReady: onReady
-    isReady: isReady
+  load: load
+  get: get
+  onReady: onReady
+  isReady: isReady
