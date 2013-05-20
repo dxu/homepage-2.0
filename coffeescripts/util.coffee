@@ -1,4 +1,4 @@
-define ['./Sprite'], (Sprite)->
+define ['./Sprite', './resources'], (Sprite, resources)->
   ctx = null
   canvas = null
 
@@ -20,7 +20,13 @@ define ['./Sprite'], (Sprite)->
 
   getCanvasCtx = -> ctx
 
-  {setup, renderEntity, getCanvas, getCanvasCtx}
+  loadGame = (assets, initFunc) ->
+    resources.load assets
+    resources.onReady initFunc
+
+
+
+  {setup, renderEntity, getCanvas, getCanvasCtx, loadGame}
 
 
 
