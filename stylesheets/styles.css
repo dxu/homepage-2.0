@@ -1,0 +1,118 @@
+html, body {
+  width: 100%;
+  height: 100%; }
+
+#bg, #sun, #horizon, .cloud, .mountain {
+  position: absolute; }
+
+@-webkit-keyframes animate-sun {
+  from {
+    top: 500px;
+    opacity: 0; }
+
+  to {
+    top: 340px;
+    opacity: 0.8; } }
+
+@-webkit-keyframes animate-sun-opacity {
+  from {
+    opacity: 0.8; }
+
+  to {
+    opacity: 0.3; } }
+
+#horizon {
+  background-color: white;
+  top: 470px; }
+
+#sun {
+  width: 100%;
+  top: 340px;
+  -webkit-animation: animate-sun-opacity 3s ease 6s infinite alternate, animate-sun 5s;
+  opacity: 0.8; }
+  #sun img {
+    width: 33%;
+    display: block;
+    margin: auto; }
+
+#bg {
+  width: 1697px;
+  height: 810px;
+  margin: auto; }
+
+@-webkit-keyframes animate-cloud1-h {
+  from {
+    left: 515px; }
+
+  to {
+    left: 1090px; } }
+
+@-webkit-keyframes animate-cloud1-v {
+  from {
+    top: 321px; }
+
+  to {
+    top: 329px; } }
+
+.cloud1 {
+  top: 325px;
+  width: 105px;
+  height: 57px;
+  left: 515px;
+  -webkit-animation: animate-cloud1-h 360s linear 0 infinite alternate; }
+
+@-webkit-keyframes animate-cloud2-h {
+  from {
+    right: 545px; }
+
+  to {
+    right: 1120px; } }
+
+@-webkit-keyframes animate-cloud2-v {
+  from {
+    top: 374px; }
+
+  to {
+    top: 366px; } }
+
+.cloud2 {
+  top: 370px;
+  width: 76px;
+  height: 46px;
+  right: 545px;
+  -webkit-animation: animate-cloud2-h 240s linear 0 infinite alternate, animate-cloud2-v 8s ease 0 infinite alternate; }
+
+@-webkit-keyframes animate-cloud3-h {
+  from {
+    left: 545px; }
+
+  to {
+    left: 1120px; } }
+
+@-webkit-keyframes animate-cloud3-v {
+  from {
+    top: 406px; }
+
+  to {
+    top: 414px; } }
+
+.cloud3 {
+  top: 410px;
+  width: 90px;
+  height: 49px;
+  left: 545px;
+  -webkit-animation: animate-cloud3-h 180s linear 0 infinite alternate, animate-cloud3-v 8s ease 0 infinite alternate; }
+
+.mountain-large {
+  top: 398px; }
+  .mountain-large.right {
+    right: 565px; }
+  .mountain-large.left {
+    left: 565px; }
+
+.mountain-clump {
+  top: 424px; }
+  .mountain-clump.right {
+    right: 615px; }
+  .mountain-clump.left {
+    left: 615px; }
