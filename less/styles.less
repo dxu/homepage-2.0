@@ -1,20 +1,21 @@
-@skyport-top: 300px;
+@skyport-top-offset: 170px;
 @skyport-height: 170px;
 @skyport-width: 670px;
 
 #skyport {
-  top: @skyport-top;
+  .top-mix(60%, @skyport-top-offset);
   height: @skyport-height;
   width: @skyport-width;
   position: relative;
   margin:auto;
-  
 }
 
 @sun-top-start: 170px;
 @sun-top-end: 40px;
 
-@horizon-top: 470px;
+@horizon-top: 60%;
+@horizon-width: 100%;
+@horizon-height: 100% - @horizon-top;
 @mountain-large-top: 100px;
 @mountain-clump-top: 125px;
 @mountain-large-height: 72px;
@@ -35,6 +36,18 @@
 
 @cloud-bounce: 4px;
 
+.top-mix (@percent: 100%; @pixels: 0px;) {
+  /* Firefox */
+  top: -moz-calc(~"@{percent} - @{pixels}");
+  /* WebKit */
+  top: -webkit-calc(~"@{percent} - @{pixels}");
+  /* Opera */
+  top: -o-calc(~"@{percent} - @{pixels}");
+  /* Standard */
+  top: calc(~"@{percent} - @{pixels}");
+}
+
+
 html, body{
   width: 100%;
   height: 100%;
@@ -54,7 +67,9 @@ html, body{
 }
 
 #horizon {
-  width: 100%;
+  min-width: @skyport-width;
+  width: @horizon-width;
+  height: @horizon-height;
   background-color: white;
   top: @horizon-top;
 }
