@@ -1,0 +1,204 @@
+@img_url: "../assets/img/";
+@sun-width: 62%;
+@sun-bottom: 60%;
+@sun-top: 70%;
+@horizon-top: 60%;
+@horizon-height: 100% - @horizon-top;
+@horizon-width: 100%;
+@horizon-url: url("@{img_url}horizon.png");
+@mountain-large-width: 14.5%;
+@mountain-large-height: auto;
+@mountain-large-offset: 21%;
+@mountain-clump-height: auto;
+@mountain-clump-width: 13.5%;
+@mountain-clump-offset: 26%;
+@mountain-total-width: 575px;
+
+// @mountain-bottom: 100% - @horizon-top;
+@mountain-bottom: 0%;
+
+@min-height: 800px;
+@min-width: 1280px;
+@max-height: 1050px;
+@max-width: 1500px;
+
+
+
+
+@skyline-width: 100%;
+@skyline-height: 100% - @horizon-height;
+// @skyline-bottom: 100% - @horizon-top;
+@skyline-bottom: 100% - @horizon-top;
+
+
+@cloud1-altitude: 145px;
+@cloud2-altitude: 100px;
+@cloud3-altitude: 60px; 
+@cloud1-offset: @mountain-large-offset - 50px;
+@cloud2-offset: @mountain-large-offset - 20px;
+@cloud3-offset: @mountain-large-offset - 20px;
+@cloud1-top: @horizon-top - @cloud1-altitude;
+@cloud2-top: @horizon-top - @cloud2-altitude;
+@cloud3-top: @horizon-top - @cloud3-altitude;
+
+@cloud-bounce: 4px;
+// MIXINS
+.top-offset (@top) {
+  top: @top;
+  margin-top: -100%;
+}
+
+.height-mix (@percent: 100%; @pixels: 0px;) {
+  /* Firefox */
+  height: -moz-calc(@percent - @pixels);
+  /* WebKit */
+  height: -webkit-calc(@percent - @pixels);
+  /* Opera */
+  height: -o-calc(@percent - @pixels);
+  /* Standard */
+  height: calc(@percent - @pixels);
+}
+
+
+// STYLES
+
+html, body{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+#bg, #sun, #horizon, .cloud, .mountain, #skyline {
+  position: absolute;
+}
+
+
+
+@-webkit-keyframes animate-sun {
+  from {top: 100%; opacity: 0;}
+  to {top: @sun-top; opacity: 0.8;}
+}
+@-webkit-keyframes animate-sun-opacity {
+  from {opacity: 0.8;}
+  to {opacity: 0.3;}
+}
+
+
+#bg {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  div img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+
+  #skyline {
+    width: @skyline-width; 
+    height: @skyline-height; 
+    margin: (100% - @skyline-width) / 2;
+    min-width: @min-width;
+  }
+
+  #horizon {
+    background-image: @horizon-url;
+    background-size: 100% 100%;
+    background-color: white;
+    top: @horizon-top;
+    width: @horizon-width;
+    height: @horizon-height;
+    min-height: @min-height;
+    min-width: @min-width;
+    max-height: @min-height;
+  }
+
+  #sun {
+    left: @mountain-large-offset;
+    right: @mountain-large-offset;
+    top: @sun-top;
+    -webkit-animation: animate-sun-opacity 3s ease 6s infinite alternate, animate-sun 5s;
+    opacity: 0.8;
+    img {
+      width:100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+
+
+  @-webkit-keyframes animate-cloud1-h {
+    from {left: @cloud1-offset}
+    to {left: @cloud1-offset + @mountain-total-width}
+  }
+  @-webkit-keyframes animate-cloud1-v {
+    from {top: @cloud1-top - @cloud-bounce;}
+    to {top: @cloud1-top + @cloud-bounce;}
+  }
+  .cloud1 {
+    top: @cloud1-top;
+    width: 105px;
+    height: 57px;
+    left: @cloud1-offset;
+    -webkit-animation: animate-cloud1-h 360s linear 0 infinite alternate;
+  }
+  @-webkit-keyframes animate-cloud2-h {
+    from {right: @cloud2-offset}
+    to {right: @cloud2-offset + @mountain-total-width}
+  }
+  @-webkit-keyframes animate-cloud2-v {
+    from {top: @cloud2-top + @cloud-bounce;}
+    to {top: @cloud2-top - @cloud-bounce;}
+  }
+  .cloud2 {
+    top: @cloud2-top;
+    width: 76px;
+    height: 46px;
+    right: @cloud2-offset;
+    -webkit-animation: animate-cloud2-h 240s linear 0 infinite alternate, animate-cloud2-v 8s ease 0 infinite alternate;
+  }
+  @-webkit-keyframes animate-cloud3-h {
+    from {left: @cloud3-offset}
+    to {left: @cloud3-offset + @mountain-total-width}
+  }
+  @-webkit-keyframes animate-cloud3-v {
+    from {top: @cloud3-top - @cloud-bounce;}
+    to {top: @cloud3-top + @cloud-bounce;}
+  }
+  .cloud3 {
+    top: @cloud3-top;
+    width: 90px;
+    height: 49px;
+    left: @cloud3-offset;
+    -webkit-animation: animate-cloud3-h 180s linear 0 infinite alternate, animate-cloud3-v 8s ease 0 infinite alternate;
+  }
+
+  .mountain-large {
+    bottom: @mountain-bottom;
+    width: @mountain-large-width;
+    height: @mountain-large-height;
+    &.right {
+      right: @mountain-large-offset;
+    }
+    &.left {
+      left: @mountain-large-offset;
+    }
+  }
+
+  .mountain-clump {
+    bottom: @mountain-bottom;
+    width: @mountain-clump-width;
+    height: @mountain-clump-height;
+    &.right {
+      right: @mountain-clump-offset;
+    }
+    &.left {
+      left: @mountain-clump-offset;
+    }
+  }
+
+}
