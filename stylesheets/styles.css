@@ -1,46 +1,244 @@
-/*
-Syntax error: Invalid CSS after "+rotate-nav": expected "{", was "($deg) {"
-        on line 120 of less/styles.scss
+@font-face {
+  font-family: footer;
+  src: url("../assets/fonts/visitor2.ttf"); }
 
-115:       }
-116:     }
-117:   }
-118: }
-119: 
-120: +rotate-nav($deg) {
-121: 
-122: }
-123: 
-124: @-webkit-keyframes rotate-nav-img{
-125:   from {
+@font-face {
+  font-family: nav;
+  src: url("../assets/fonts/Brandon_med.otf"); }
 
-Backtrace:
-less/styles.scss:120
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:1148:in `expected'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:1084:in `expected'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:1079:in `tok!'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:534:in `block'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:529:in `ruleset'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:553:in `block_child'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:546:in `block_contents'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:82:in `stylesheet'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/scss/parser.rb:27:in `parse'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:342:in `_to_tree'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:315:in `_render'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:262:in `render'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `each'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:299:in `block in watch'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/adapters/polling.rb:56:in `call'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/adapters/polling.rb:56:in `poll'
-/var/lib/gems/1.9.1/gems/sass-3.2.7/vendor/listen/lib/listen/adapters/polling.rb:32:in `block in start'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"+rotate-nav\": expected \"{\", was \"($deg) {\"\A         on line 120 of less/styles.scss\A \A 115:       }\A 116:     }\A 117:   }\A 118: }\A 119: \A 120: +rotate-nav($deg) {\A 121: \A 122: }\A 123: \A 124: @-webkit-keyframes rotate-nav-img{\A 125:   from {"; }
+@font-face {
+  font-family: text-font;
+  src: url("../assets/fonts/gotham-htf.otf"); }
+
+a {
+  text-decoration: none; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+html, body, p, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#shadow {
+  background-image: url("../assets/img/shadow.png");
+  background-repeat: no-repeat;
+  width: 193px;
+  height: 30px; }
+
+#lower, #upper, #copyright {
+  position: absolute; }
+
+#upper {
+  width: 100%;
+  height: 70%; }
+  #upper #avatar {
+    width: 100px;
+    height: auto;
+    margin: auto;
+    display: block;
+    padding: 20px;
+    opacity: 0.7; }
+  #upper footer {
+    color: #5f78ff;
+    width: 100%;
+    padding: 1em;
+    bottom: 0;
+    font-family: text-font;
+    font-size: 10px;
+    text-align: center;
+    position: absolute; }
+    #upper footer a {
+      color: rgba(113, 179, 196, 0.7); }
+      #upper footer a:hover {
+        color: #71b3c4; }
+
+#lower {
+  border-top: 1px solid #22305c;
+  background-size: 100%;
+  width: 100%;
+  height: 30%;
+  top: 70%; }
+  #lower nav {
+    font-family: nav;
+    font-size: 12px;
+    text-align: center; }
+    #lower nav ul, #lower nav li {
+      display: inline-block; }
+    #lower nav ul {
+      width: 100%; }
+    #lower nav li img {
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+      opacity: 0.6; }
+      #lower nav li img:hover {
+        opacity: 0.8; }
+
+@-webkit-keyframes opaque {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes rotate-nav-img150 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(570deg); } }
+
+@-webkit-keyframes rotate-nav-item150 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(150deg); } }
+
+@-webkit-keyframes rotate-nav-img180 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(540deg); } }
+
+@-webkit-keyframes rotate-nav-item180 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(180deg); } }
+
+@-webkit-keyframes rotate-nav-img210 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(510deg); } }
+
+@-webkit-keyframes rotate-nav-item210 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(210deg); } }
+
+@-webkit-keyframes rotate-nav-img240 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(480deg); } }
+
+@-webkit-keyframes rotate-nav-item240 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(240deg); } }
+
+@-webkit-keyframes rotate-nav-img270 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(450deg); } }
+
+@-webkit-keyframes rotate-nav-item270 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(270deg); } }
+
+@-webkit-keyframes rotate-nav-img300 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(420deg); } }
+
+@-webkit-keyframes rotate-nav-item300 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(300deg); } }
+
+@-webkit-keyframes rotate-nav-img360 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-webkit-keyframes rotate-nav-item360 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+#centerpiece {
+  margin: auto;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  top: calc(50% - 200px); }
+  #centerpiece #avatar {
+    position: relative;
+    top: calc(50% - 100px);
+    display: block;
+    margin: auto;
+    background: url("../assets/img/avatar_large.png") center center no-repeat;
+    background-size: auto 200px;
+    width: 200px;
+    height: 200px; }
+  #centerpiece .nav {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; }
+    #centerpiece .nav .nav-item {
+      width: 20px;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      margin-left: -10px; }
+      #centerpiece .nav .nav-item img {
+        width: 100%;
+        opacity: 0; }
+      #centerpiece .nav .nav-item:nth-child(1) {
+        -webkit-animation: rotate-nav-item210 1s 1 forwards ease; }
+        #centerpiece .nav .nav-item:nth-child(1) img {
+          -webkit-animation: rotate-nav-img210 1s 1 forwards ease, opaque 1s 1 forwards ease;
+          width: 100%; }
+      #centerpiece .nav .nav-item:nth-child(2) {
+        -webkit-animation: rotate-nav-item180 1s 0.3s 1 forwards ease; }
+        #centerpiece .nav .nav-item:nth-child(2) img {
+          -webkit-animation: rotate-nav-img180 1s 1 0.3s forwards ease, opaque 1s 1 0.3s forwards ease;
+          width: 100%; }
+      #centerpiece .nav .nav-item:nth-child(3) {
+        -webkit-animation: rotate-nav-item150 1s 1 0.6s forwards ease; }
+        #centerpiece .nav .nav-item:nth-child(3) img {
+          -webkit-animation: rotate-nav-img150 1s 1 0.6s forwards ease, opaque 1s 1 0.6s forwards ease;
+          width: 100%; }
+
+@-webkit-keyframes animate-copyright {
+  from {
+    color: #131b58; }
+
+  to {
+    color: #40556f; } }
+
+#copyright {
+  -webkit-animation: animate-copyright 5s ease 0 infinite alternate;
+  text-align: center;
+  bottom: 0;
+  padding: 15px 0;
+  width: 100%;
+  font-family: footer;
+  font-size: 10px; }
