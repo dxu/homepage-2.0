@@ -256,13 +256,14 @@ body {
     background-size: auto 100%;
     width: 300px;
     height: 300px;
-    border: 1px solid #3c485a;
-    background-color: #3c485a;
+    border: 1px solid rgba(60, 72, 90, 0);
+    background-color: rgba(60, 72, 90, 0);
     border-radius: 150px; }
     #centerpiece #avatar img {
       width: 100%;
       height: 100%;
-      display: block; }
+      display: block;
+      opacity: 0.85; }
   #centerpiece .nav {
     width: 100%;
     height: 100%;
@@ -282,19 +283,19 @@ body {
         width: 100%;
         opacity: 0; }
       #centerpiece .nav .nav-item:nth-child(1) {
-        -webkit-animation: rotate-nav-item120 0.8s 1 forwards ease; }
+        -webkit-animation: rotate-nav-item0 1s 1 forwards ease; }
         #centerpiece .nav .nav-item:nth-child(1) img {
-          -webkit-animation: rotate-nav-img120 0.8s 1 forwards ease, opaque 0.8s 1 forwards ease;
+          -webkit-animation: rotate-nav-img0 1s 1 forwards ease, opaque 1s 1 forwards ease;
           width: 100%; }
       #centerpiece .nav .nav-item:nth-child(2) {
-        -webkit-animation: rotate-nav-item240 0.8s 0.3s 1 forwards ease; }
+        -webkit-animation: rotate-nav-item120 1s 0.15s 1 forwards ease; }
         #centerpiece .nav .nav-item:nth-child(2) img {
-          -webkit-animation: rotate-nav-img240 0.8s 1 0.3s forwards ease, opaque 0.8s 1 0.3s forwards ease;
+          -webkit-animation: rotate-nav-img120 1s 1 0.15s forwards ease, opaque 1s 1 0.15s forwards ease;
           width: 100%; }
       #centerpiece .nav .nav-item:nth-child(3) {
-        -webkit-animation: rotate-nav-item360 0.8s 1 0.6s forwards ease; }
+        -webkit-animation: rotate-nav-item240 1s 1 0.3s forwards ease; }
         #centerpiece .nav .nav-item:nth-child(3) img {
-          -webkit-animation: rotate-nav-img360 0.8s 1 0.6s forwards ease, opaque 0.8s 1 0.6s forwards ease;
+          -webkit-animation: rotate-nav-img240 1s 1 0.3s forwards ease, opaque 1s 1 0.3s forwards ease;
           width: 100%; }
 
 @-webkit-keyframes animate-copyright {
