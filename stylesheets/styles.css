@@ -28,7 +28,11 @@ html, body, p, ul, li {
   width: 193px;
   height: 30px; }
 
-#lower, #upper, #copyright {
+body {
+  min-height: 400px;
+  min-width: 450px; }
+
+#lower, #upper, #copyright, body {
   position: absolute; }
 
 #upper {
@@ -83,6 +87,62 @@ html, body, p, ul, li {
 
   to {
     opacity: 1; } }
+
+@-webkit-keyframes rotate-nav-img30 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(690deg); } }
+
+@-webkit-keyframes rotate-nav-item30 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(30deg); } }
+
+@-webkit-keyframes rotate-nav-img60 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(660deg); } }
+
+@-webkit-keyframes rotate-nav-item60 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(60deg); } }
+
+@-webkit-keyframes rotate-nav-img90 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(630deg); } }
+
+@-webkit-keyframes rotate-nav-item90 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(90deg); } }
+
+@-webkit-keyframes rotate-nav-img120 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(600deg); } }
+
+@-webkit-keyframes rotate-nav-item120 {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(120deg); } }
 
 @-webkit-keyframes rotate-nav-img150 {
   from {
@@ -190,13 +250,19 @@ html, body, p, ul, li {
   top: calc(50% - 200px); }
   #centerpiece #avatar {
     position: relative;
-    top: calc(50% - 100px);
+    top: calc(50% - 150px);
     display: block;
     margin: auto;
-    background: url("../assets/img/avatar_large.png") center center no-repeat;
-    background-size: auto 200px;
-    width: 200px;
-    height: 200px; }
+    background-size: auto 100%;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #3c485a;
+    background-color: #3c485a;
+    border-radius: 150px; }
+    #centerpiece #avatar img {
+      width: 100%;
+      height: 100%;
+      display: block; }
   #centerpiece .nav {
     width: 100%;
     height: 100%;
@@ -208,23 +274,27 @@ html, body, p, ul, li {
       position: absolute;
       left: 50%;
       margin-left: -10px; }
+      #centerpiece .nav .nav-item a {
+        opacity: 0.5; }
+        #centerpiece .nav .nav-item a:hover {
+          opacity: 0.8; }
       #centerpiece .nav .nav-item img {
         width: 100%;
         opacity: 0; }
       #centerpiece .nav .nav-item:nth-child(1) {
-        -webkit-animation: rotate-nav-item210 1s 1 forwards ease; }
+        -webkit-animation: rotate-nav-item120 0.8s 1 forwards ease; }
         #centerpiece .nav .nav-item:nth-child(1) img {
-          -webkit-animation: rotate-nav-img210 1s 1 forwards ease, opaque 1s 1 forwards ease;
+          -webkit-animation: rotate-nav-img120 0.8s 1 forwards ease, opaque 0.8s 1 forwards ease;
           width: 100%; }
       #centerpiece .nav .nav-item:nth-child(2) {
-        -webkit-animation: rotate-nav-item180 1s 0.3s 1 forwards ease; }
+        -webkit-animation: rotate-nav-item240 0.8s 0.3s 1 forwards ease; }
         #centerpiece .nav .nav-item:nth-child(2) img {
-          -webkit-animation: rotate-nav-img180 1s 1 0.3s forwards ease, opaque 1s 1 0.3s forwards ease;
+          -webkit-animation: rotate-nav-img240 0.8s 1 0.3s forwards ease, opaque 0.8s 1 0.3s forwards ease;
           width: 100%; }
       #centerpiece .nav .nav-item:nth-child(3) {
-        -webkit-animation: rotate-nav-item150 1s 1 0.6s forwards ease; }
+        -webkit-animation: rotate-nav-item360 0.8s 1 0.6s forwards ease; }
         #centerpiece .nav .nav-item:nth-child(3) img {
-          -webkit-animation: rotate-nav-img150 1s 1 0.6s forwards ease, opaque 1s 1 0.6s forwards ease;
+          -webkit-animation: rotate-nav-img360 0.8s 1 0.6s forwards ease, opaque 0.8s 1 0.6s forwards ease;
           width: 100%; }
 
 @-webkit-keyframes animate-copyright {
