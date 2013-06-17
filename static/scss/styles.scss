@@ -81,12 +81,14 @@ body {
 @include rotate-nav(360);
 
 
-$centerpiece-w: 600px;
+$centerpiece-w: 500px;
 $centerpiece-h: $centerpiece-w;
-$logo-w: 450px;
+$logo-w: 350px;
 $logo-h: $logo-w;
-$icon-size: 60px;
+$icon-size: 50px;
 
+@media (max-height: 700px) {
+}
 
 #centerpiece {
   margin: auto;
