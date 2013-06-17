@@ -1,24 +1,10 @@
-
-* {
-  box-sizing: border-box;
-}
-$natime: 1s;
-$d1time: 0.15s;
-$d2time: 0.3s;
-$icon-opacity: 0.5;
-$logo-opacity: 0.9;
-
 @font-face {
   font-family: header-footer;
   src: url('../assets/fonts/Brandon_med.otf');
 }
-@font-face {
-  font-family: nav;
-  src: url('../assets/fonts/Brandon_med.otf');
-}
-@font-face {
-  font-family: text-font;
-  src: url('../assets/fonts/gotham-htf.otf');
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -32,20 +18,12 @@ html, body {
   -webkit-user-select: none;
 }
 
-html, body, p, ul, li{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+$natime: 1s;
+$d1time: 0.15s;
+$d2time: 0.3s;
+$icon-opacity: 0.5;
+$logo-opacity: 0.9;
 
-
-#shadow {
-  background-image: url("../assets/img/shadow.png");
-  background-repeat: no-repeat;
-  width: 193px;
-  height: 30px;
-
-}
 
 body {
   min-height: 400px;
@@ -55,9 +33,6 @@ body {
 #copyright, body {
   position: absolute;
 }
-
-$lower-height: 30%;
-
 
 @-webkit-keyframes opaque{
   from {
