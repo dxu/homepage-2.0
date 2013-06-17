@@ -28,10 +28,17 @@ $d2time: 0.3s;
 $icon-opacity: 0.5;
 $logo-opacity: 0.9;
 
+$centerpiece-w: 500px;
+$centerpiece-h: $centerpiece-w;
+$logo-w: 350px;
+$logo-h: $logo-w;
+$icon-size: 50px;
+
+
 
 body {
-  min-height: 400px;
-  min-width: 450px;
+  min-height: $centerpiece-h +  100px;
+  min-width: 550px;
 }
 
 #copyright, body {
@@ -80,12 +87,6 @@ body {
 // @include rotate-nav(300);
 @include rotate-nav(360);
 
-
-$centerpiece-w: 500px;
-$centerpiece-h: $centerpiece-w;
-$logo-w: 350px;
-$logo-h: $logo-w;
-$icon-size: 50px;
 
 @media (max-height: 700px) {
 }
