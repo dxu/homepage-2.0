@@ -7,9 +7,6 @@ $d1time: 0.15s;
 $d2time: 0.3s;
 $icon-opacity: 0.5;
 $logo-opacity: 0.9;
-$footer-size: 60px;
-$header-size: $footer-size;
-
 @font-face {
   font-family: logo;
   src: url('../assets/fonts/unborneditrion.ttf');
@@ -43,20 +40,6 @@ html, body, p, ul, li{
   list-style: none;
 }
 
-header {
-  font-size: 10px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: auto;
-  width: 440px;
-  display: block;
-  height: $header-size;
-  vertical-align: center;
-  margin-top: 20px;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
 
 #shadow {
   background-image: url("../assets/img/shadow.png");
@@ -196,35 +179,41 @@ $icon-size: 60px;
       }
       i {
         opacity: 0;
-        font-size: 22px;
+        font-size: 25px;
         width: $icon-size;
         height: $icon-size;
         display: inline-block;
         line-height: $icon-size;
         border-radius: $icon-size;
       }
+      $li-color: rgba(138, 41, 74, 1);
+      $twitter-color: rgba(0, 137, 175, 1);
+      $git-color: rgba(5, 40, 160, 1);
       &:nth-child(1) {
         -webkit-animation: rotate-nav-item0 $natime 1 forwards ease;
         i {
           -webkit-animation: rotate-nav-img0 $natime 1 forwards ease, opaque $natime 1 forwards ease;
-          color: rgba(138, 41, 74, 1);
-          border: 1px dashed rgba(138, 41, 74, 0.3);
+          color: $git-color;
+          border: 1px dashed $git-color;
+          text-shadow: 0 0 0.1em $git-color;
         }
       }
       &:nth-child(2) {
         -webkit-animation: rotate-nav-item120 $natime $d1time 1 forwards ease;
         i {
           -webkit-animation: rotate-nav-img120 $natime 1 $d1time forwards ease, opaque $natime 1 $d1time forwards ease;
-          color: rgba(0, 137, 175, 1);
-          border: 1px dashed rgba(0, 137, 175, 0.3);
+          color: $li-color;
+          border: 1px dashed $li-color;
+          text-shadow: 0 0 0.1em $li-color;
         }
       }
       &:nth-child(3) {
         -webkit-animation: rotate-nav-item240 $natime 1 $d2time forwards ease;
         i {
           -webkit-animation: rotate-nav-img240 $natime 1 $d2time forwards ease, opaque $natime 1 $d2time forwards ease;
-          color: rgba(5, 40, 160, 1);
-          border: 1px dashed rgba(5, 40, 160, 0.3);
+          color: $twitter-color;
+          border: 1px dashed $twitter-color;
+          text-shadow:0 0 0.1em $twitter-color;
         }
       }
     }
@@ -237,21 +226,50 @@ $icon-size: 60px;
   to {color: rgb(64, 85, 111);}
 }
 
+$footer-lh: 15px;
+$footer-margin: 20px;
+$footer-size: 60px;
+$header-size: $footer-size;
 
 footer, header {
-  opacity: 0.2;
+  width: 470px;
+  display: block;
+  color: rgba(204, 204, 204, 1.0);
   letter-spacing: 1px;
   font-size: 11px;
-  line-height: 15px;
+  line-height: $footer-lh;
+  user-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  a:visited, a{
+    color: rgba(116, 169, 199, 0.7);
+  }
+  a:hover{
+    color: rgba(116, 169, 199, 1.0);
+  }
+}
+
+header {
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: center;
+  margin-top: $footer-margin;
 }
 
 #copyright {
-  -webkit-animation: animate-copyright 5s ease 0 infinite alternate;
+  // -webkit-animation: animate-copyright 5s ease 0 infinite alternate;
   text-transform: uppercase;
   text-align: center;
   bottom: 0;
-  width: 100%;
-  line-height: $footer-size;
-  user-select: none;
-  -webkit-user-select: none;
+  line-height: $footer-lh;
+  margin-bottom: $footer-margin;
+
+
+  #email {
+    position:absolute;
+  }
 }
