@@ -1,10 +1,14 @@
-@font-face {
-  font-family: header-footer;
-  src: url('../assets/fonts/Brandon_med.otf');
-}
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+@import "compass/css3/box-sizing";
+
+@include font-face(header-footer, url('../assets/fonts/Brandon_med.otf'));
 
 * {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 a {
@@ -14,8 +18,7 @@ a {
 html, body {
   width: 100%;
   height: 100%;
-  user-select: none;
-  -webkit-user-select: none;
+  @include user-select(none);
 }
 
 $natime: 1s;
@@ -34,30 +37,30 @@ body {
   position: absolute;
 }
 
-@-webkit-keyframes opaque{
+@include keyframes(opaque){
   from {
-    opacity: 0;
+    @include opacity(0);
   }
   to {
-    opacity: 1;
+    @include opacity(1);
   }
 }
 
 @mixin rotate-nav($deg) {
-  @-webkit-keyframes rotate-nav-img#{$deg}{
+  @include keyframes(rotate-nav-img#{$deg}){
     from {
-      -webkit-transform: rotate(0deg)
+      @include rotate(0deg)
     }
     to {
-      -webkit-transform: rotate(#{540 - $deg + 180}deg)
+      @include rotate(#{540 - $deg + 180}deg)
     }
   }
-  @-webkit-keyframes rotate-nav-item#{$deg} {
+  @include keyframes(rotate-nav-item#{$deg}){
     from {
-      -webkit-transform: rotate(0deg)
+      @include rotate(0deg)
     }
     to {
-      -webkit-transform: rotate(#{$deg}deg)
+      @include rotate(#{$deg}deg)
     }
   }
 }
@@ -90,8 +93,8 @@ $icon-size: 60px;
   width: $centerpiece-w;
   height: $centerpiece-h;
   top: calc(50% - #{$centerpiece-h/2});
-  opacity: 0;
-  -webkit-animation: opaque $natime 1 $d1time forwards ease;
+  @include opacity(0);
+  @include animation(opaque $natime 1 $d1time forwards ease);
 
   #logo {
     position: relative;
@@ -110,7 +113,7 @@ $icon-size: 60px;
       box-shadow: 0 0 10px 1px black;
       border-radius: 50%;
       display: block;
-      opacity: $logo-opacity;
+      @include opacity($logo-opacity);
     }
     i {
       display: none;
@@ -142,16 +145,16 @@ $icon-size: 60px;
       vertical-align: middle;
 
       a {
-        opacity: $icon-opacity;
+        @include opacity($icon-opacity);
         width: $icon-size;
         height: $icon-size;
         display: inline-block;
         &:hover {
-          opacity: 1.0;
+          @include opacity(1.0);
         }
       }
       i {
-        opacity: 0;
+        @include opacity(0);
         font-size: 25px;
         width: $icon-size;
         height: $icon-size;
@@ -163,27 +166,27 @@ $icon-size: 60px;
       $twitter-color: rgba(0, 137, 175, 1);
       $git-color: rgba(5, 40, 160, 1);
       &:nth-child(1) {
-        -webkit-animation: rotate-nav-item0 $natime 1 forwards ease;
+        @include animation(rotate-nav-item0 $natime 1 forwards ease);
         i {
-          -webkit-animation: rotate-nav-img0 $natime 1 forwards ease, opaque $natime 1 forwards ease;
+          @include animation(rotate-nav-img0 $natime 1 forwards ease, opaque $natime 1 forwards ease);
           color: $git-color;
           border: 1px dashed $git-color;
           text-shadow: 0 0 0.1em $git-color;
         }
       }
       &:nth-child(2) {
-        -webkit-animation: rotate-nav-item120 $natime $d1time 1 forwards ease;
+        @include animation(rotate-nav-item120 $natime $d1time 1 forwards ease);
         i {
-          -webkit-animation: rotate-nav-img120 $natime 1 $d1time forwards ease, opaque $natime 1 $d1time forwards ease;
+          @include animation(rotate-nav-img120 $natime 1 $d1time forwards ease, opaque $natime 1 $d1time forwards ease);
           color: $li-color;
           border: 1px dashed $li-color;
           text-shadow: 0 0 0.1em $li-color;
         }
       }
       &:nth-child(3) {
-        -webkit-animation: rotate-nav-item240 $natime 1 $d2time forwards ease;
+        @include animation(rotate-nav-item240 $natime 1 $d2time forwards ease);
         i {
-          -webkit-animation: rotate-nav-img240 $natime 1 $d2time forwards ease, opaque $natime 1 $d2time forwards ease;
+          @include animation(rotate-nav-img240 $natime 1 $d2time forwards ease, opaque $natime 1 $d2time forwards ease);
           color: $twitter-color;
           border: 1px dashed $twitter-color;
           text-shadow:0 0 0.1em $twitter-color;
@@ -194,7 +197,7 @@ $icon-size: 60px;
 }
 
 
-@-webkit-keyframes animate-copyright {
+@include keyframes(animate-copyright){
   from {color: rgb(19, 27, 88);}
   to {color: rgb(64, 85, 111);}
 }
@@ -233,14 +236,12 @@ header {
 }
 
 #copyright {
-  // -webkit-animation: animate-copyright 5s ease 0 infinite alternate;
+  // @include animation(animate-copyright 5s ease 0 infinite alternate);
   text-transform: uppercase;
   text-align: center;
   bottom: 0;
   line-height: $footer-lh;
   margin-bottom: $footer-margin;
-
-
   #email {
     position:absolute;
   }
