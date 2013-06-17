@@ -93,12 +93,20 @@ $icon-size: 60px;
   width: $centerpiece-w;
   height: $centerpiece-h;
   top: calc(50% - #{$centerpiece-h/2});
+  top: -webkit-calc(50% - #{$centerpiece-h/2});
+  top: -moz-calc(50% - #{$centerpiece-h/2});
+  top: -o-calc(50% - #{$centerpiece-h/2});
+  top: -ms-calc(50% - #{$centerpiece-h/2});
   @include opacity(0);
   @include animation(opaque $natime 1 $d1time forwards ease);
 
   #logo {
     position: relative;
     top: calc(50% - #{$logo-h/2});
+    top: -webkit-calc(50% - #{$logo-h/2});
+    top: -o-calc(50% - #{$logo-h/2});
+    top: -ms-calc(50% - #{$logo-h/2});
+    top: -moz-calc(50% - #{$logo-h/2});
     display: block;
     margin: auto;
     background-size: auto 100%;
