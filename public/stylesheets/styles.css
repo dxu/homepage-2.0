@@ -2,11 +2,7 @@
   box-sizing: border-box; }
 
 @font-face {
-  font-family: logo;
-  src: url("../assets/fonts/unborneditrion.ttf"); }
-
-@font-face {
-  font-family: body;
+  font-family: header-footer;
   src: url("../assets/fonts/Brandon_med.otf"); }
 
 @font-face {
@@ -23,7 +19,8 @@ a {
 html, body {
   width: 100%;
   height: 100%;
-  font-family: body; }
+  user-select: none;
+  -webkit-user-select: none; }
 
 html, body, p, ul, li {
   margin: 0;
@@ -64,34 +61,6 @@ body {
   to {
     -webkit-transform: rotate(30deg); } }
 
-@-webkit-keyframes rotate-nav-img60 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(660deg); } }
-
-@-webkit-keyframes rotate-nav-item60 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(60deg); } }
-
-@-webkit-keyframes rotate-nav-img90 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(630deg); } }
-
-@-webkit-keyframes rotate-nav-item90 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(90deg); } }
-
 @-webkit-keyframes rotate-nav-img120 {
   from {
     -webkit-transform: rotate(0deg); }
@@ -106,48 +75,6 @@ body {
   to {
     -webkit-transform: rotate(120deg); } }
 
-@-webkit-keyframes rotate-nav-img150 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(570deg); } }
-
-@-webkit-keyframes rotate-nav-item150 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(150deg); } }
-
-@-webkit-keyframes rotate-nav-img180 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(540deg); } }
-
-@-webkit-keyframes rotate-nav-item180 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(180deg); } }
-
-@-webkit-keyframes rotate-nav-img210 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(510deg); } }
-
-@-webkit-keyframes rotate-nav-item210 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(210deg); } }
-
 @-webkit-keyframes rotate-nav-img240 {
   from {
     -webkit-transform: rotate(0deg); }
@@ -161,34 +88,6 @@ body {
 
   to {
     -webkit-transform: rotate(240deg); } }
-
-@-webkit-keyframes rotate-nav-img270 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(450deg); } }
-
-@-webkit-keyframes rotate-nav-item270 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(270deg); } }
-
-@-webkit-keyframes rotate-nav-img300 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(420deg); } }
-
-@-webkit-keyframes rotate-nav-item300 {
-  from {
-    -webkit-transform: rotate(0deg); }
-
-  to {
-    -webkit-transform: rotate(300deg); } }
 
 @-webkit-keyframes rotate-nav-img360 {
   from {
@@ -302,12 +201,11 @@ body {
 footer, header {
   width: 470px;
   display: block;
+  font-family: header-footer;
   color: #cccccc;
   letter-spacing: 1px;
   font-size: 11px;
   line-height: 15px;
-  user-select: none;
-  -webkit-user-select: none;
   position: absolute;
   margin: auto;
   left: 0;
