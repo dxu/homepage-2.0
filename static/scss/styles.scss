@@ -1,0 +1,260 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "compass/css3/animation";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
+@import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
+
+@include font-face(header-footer, url('../assets/fonts/Brandon_med.otf'));
+
+* {
+  @include box-sizing(border-box);
+}
+
+a {
+  text-decoration: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  @include user-select(none);
+}
+
+$natime: 1s;
+$d1time: 0.15s;
+$d2time: 0.3s;
+$icon-opacity: 0.5;
+$logo-opacity: 0.9;
+
+$centerpiece-w: 500px;
+$centerpiece-h: $centerpiece-w;
+$logo-w: 350px;
+$logo-h: $logo-w;
+$icon-size: 50px;
+
+
+
+body {
+  min-height: $centerpiece-h +  100px;
+  min-width: 550px;
+}
+
+#copyright, body {
+  position: absolute;
+}
+
+@include keyframes(opaque){
+  from {
+    @include opacity(0);
+  }
+  to {
+    @include opacity(1);
+  }
+}
+
+@mixin rotate-nav($deg) {
+  @include keyframes(rotate-nav-img#{$deg}){
+    from {
+      @include rotate(0deg)
+    }
+    to {
+      @include rotate(#{540 - $deg + 180}deg)
+    }
+  }
+  @include keyframes(rotate-nav-item#{$deg}){
+    from {
+      @include rotate(0deg)
+    }
+    to {
+      @include rotate(#{$deg}deg)
+    }
+  }
+}
+
+
+// @include rotate-nav(0);
+@include rotate-nav(30);
+// @include rotate-nav(60);
+// @include rotate-nav(90);
+@include rotate-nav(120);
+// @include rotate-nav(150);
+// @include rotate-nav(180);
+// @include rotate-nav(210);
+@include rotate-nav(240);
+// @include rotate-nav(270);
+// @include rotate-nav(300);
+@include rotate-nav(360);
+
+
+@media (max-height: 700px) {
+}
+
+#centerpiece {
+  margin: auto;
+  position: relative;
+  width: $centerpiece-w;
+  height: $centerpiece-h;
+  top: calc(50% - #{$centerpiece-h/2});
+  top: -webkit-calc(50% - #{$centerpiece-h/2});
+  top: -moz-calc(50% - #{$centerpiece-h/2});
+  top: -o-calc(50% - #{$centerpiece-h/2});
+  top: -ms-calc(50% - #{$centerpiece-h/2});
+  @include opacity(0);
+  @include animation(opaque $natime 1 $d1time forwards ease);
+
+  #logo {
+    position: relative;
+    top: calc(50% - #{$logo-h/2});
+    top: -webkit-calc(50% - #{$logo-h/2});
+    top: -o-calc(50% - #{$logo-h/2});
+    top: -ms-calc(50% - #{$logo-h/2});
+    top: -moz-calc(50% - #{$logo-h/2});
+    display: block;
+    margin: auto;
+    background-size: auto 100%;
+    width: $logo-w;
+    height: $logo-h;
+    border: 1px solid rgba(60, 72, 90, 0);
+    background-color: rgba(60, 72, 90, 0);
+    @include border-radius(50%);
+    img {
+      width: 100%;
+      height: 100%;
+      // box-shadow: 0 0 10px 1px black;
+      @include border-radius(50%);
+      display: block;
+      @include opacity($logo-opacity);
+    }
+    i {
+      display: none;
+      &:nth-child(2) {
+        font-size: 266px;
+      }
+      font-family: logo;
+      text-decoration: none;
+      font-style: normal;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+    }
+  }
+  .nav {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    .nav-item {
+      width: $icon-size;
+      height: 100%;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      margin-left: -$icon-size/2;
+      vertical-align: middle;
+
+      a {
+        @include opacity($icon-opacity);
+        width: $icon-size;
+        height: $icon-size;
+        display: inline-block;
+        &:hover {
+          @include opacity(1.0);
+        }
+      }
+      i {
+        @include opacity(0);
+        font-size: 25px;
+        width: $icon-size;
+        height: $icon-size;
+        display: inline-block;
+        line-height: $icon-size;
+        @include border-radius($icon-size);
+      }
+      $li-color: rgba(138, 41, 74, 1);
+      $twitter-color: rgba(0, 137, 175, 1);
+      $git-color: rgba(5, 40, 160, 1);
+      &:nth-child(1) {
+        @include animation(rotate-nav-item0 $natime 1 forwards ease);
+        i {
+          @include animation(rotate-nav-img0 $natime 1 forwards ease, opaque $natime 1 forwards ease);
+          color: $git-color;
+          border: 1px dashed $git-color;
+          // text-shadow: 0 0 0.1em $git-color;
+        }
+      }
+      &:nth-child(2) {
+        @include animation(rotate-nav-item120 $natime $d1time 1 forwards ease);
+        i {
+          @include animation(rotate-nav-img120 $natime 1 $d1time forwards ease, opaque $natime 1 $d1time forwards ease);
+          color: $li-color;
+          border: 1px dashed $li-color;
+          // text-shadow: 0 0 0.1em $li-color;
+        }
+      }
+      &:nth-child(3) {
+        @include animation(rotate-nav-item240 $natime 1 $d2time forwards ease);
+        i {
+          @include animation(rotate-nav-img240 $natime 1 $d2time forwards ease, opaque $natime 1 $d2time forwards ease);
+          color: $twitter-color;
+          border: 1px dashed $twitter-color;
+          // text-shadow:0 0 0.1em $twitter-color;
+        }
+      }
+    }
+  }
+}
+
+
+@include keyframes(animate-copyright){
+  from {color: rgb(19, 27, 88);}
+  to {color: rgb(64, 85, 111);}
+}
+
+$footer-lh: 20px;
+$footer-margin: 20px;
+$footer-size: 60px;
+$header-size: $footer-size;
+
+footer, header {
+  width: 470px;
+  display: block;
+  font-family: header-footer;
+  color: rgba(204, 204, 204, 1.0);
+  letter-spacing: 1px;
+  font-size: 11px;
+  line-height: $footer-lh;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  a:visited, a{
+    color: rgba(116, 169, 199, 0.7);
+  }
+  a:hover{
+    color: rgba(116, 169, 199, 1.0);
+  }
+}
+
+header {
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: center;
+  margin-top: $footer-margin;
+}
+
+#copyright {
+  // @include animation(animate-copyright 5s ease 0 infinite alternate);
+  text-transform: uppercase;
+  text-align: center;
+  bottom: 0;
+  line-height: $footer-lh;
+  margin-bottom: $footer-margin;
+  #email {
+    position:absolute;
+  }
+}
